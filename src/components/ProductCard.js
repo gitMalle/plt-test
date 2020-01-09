@@ -24,7 +24,7 @@ export const ProductCard = props => {
   };
 
   return (
-    <div className="card product-card">
+    <div className="card product-card" data-testid="product">
       <div className="card-content">
         <div className="media align-items-center">
           <div className="media-left">

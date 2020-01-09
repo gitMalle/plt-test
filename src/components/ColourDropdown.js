@@ -29,7 +29,7 @@ export const ColourDropdown = props => {
       <div className="dropdown-menu" id="dropdown-menu" role="menu">
         <div className="dropdown-content">
           {colours.map(colour => (
-            <a className="dropdown-item" onClick={() => setFilter(colour)}>
+            <a key={colour} className="dropdown-item" onClick={() => setFilter(colour)}>
               {colour}
             </a>
           ))}

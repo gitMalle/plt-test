@@ -3,7 +3,7 @@ import axios from "axios";
 import { ProductCard } from "./components/ProductCard";
 import { ColourDropdown } from "./components/ColourDropdown";
 
-function App() {
+export const App = () => {
   const [allProducts, setAllProducts] = useState([]);
   const [products, setProducts] = useState([]);
   const [filter, setFilter] = useState("");
@@ -53,7 +53,7 @@ function App() {
             </div>
             <div className="media-content" />
             <div className="media-right">
-              <p className="title is-3">£{total}</p>
+              <p className="title is-3" data-testid="total">£{total}</p>
             </div>
           </div>
         </div>
@@ -61,5 +61,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
