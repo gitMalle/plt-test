@@ -12,7 +12,10 @@ export const ColourDropdown = props => {
   }, [products]);
 
   return (
-    <div className={`dropdown ${isOpen && "is-active"}`} onMouseLeave={() => setOpen(false)}>
+    <div
+      className={`dropdown ${isOpen && "is-active"}`}
+      onMouseLeave={() => setOpen(false)}
+    >
       <div className="dropdown-trigger">
         <button
           className="button"
@@ -29,12 +32,16 @@ export const ColourDropdown = props => {
       <div className="dropdown-menu" id="dropdown-menu" role="menu">
         <div className="dropdown-content">
           {colours.map(colour => (
-            <a key={colour} className="dropdown-item" onClick={() => setFilter(colour)}>
+            <a
+              key={colour}
+              className="dropdown-item"
+              onClick={() => setFilter(colour)}
+            >
               {colour}
             </a>
           ))}
           <a className="dropdown-item" onClick={() => setFilter("")}>
-            No filter
+            Show all
           </a>
         </div>
       </div>

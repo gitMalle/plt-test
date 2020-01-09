@@ -4,9 +4,9 @@ import { ProductCard } from "./components/ProductCard";
 import { ColourDropdown } from "./components/ColourDropdown";
 
 export const App = () => {
-  const [allProducts, setAllProducts] = useState([]);
-  const [products, setProducts] = useState([]);
-  const [filter, setFilter] = useState("");
+  const [allProducts, setAllProducts] = useState([]); // all products from api
+  const [products, setProducts] = useState([]); // products that are displayed
+  const [filter, setFilter] = useState(""); // filter colour
   const [total, setTotal] = useState(0);
 
   // fetch all items
@@ -21,13 +21,12 @@ export const App = () => {
     fetchItems();
   }, []);
 
+  // filter products every time another colour is picked
   useEffect(() => {
-    if (filter.length > 0) {
-      setProducts(allProducts.filter(p => p.colour === filter));
-      setTotal(0);
-    } else {
-      setProducts(allProducts);
-    }
+    filter.length > 0
+      ? setProducts(allProducts.filter(p => p.colour === filter))
+      : setProducts(allProducts);
+    setTotal(0);
   }, [filter]);
 
   return (
@@ -43,6 +42,7 @@ export const App = () => {
           handleTotal={price =>
             setTotal(Number(Math.abs(total + price).toFixed(2)))
           }
+          filter={filter}
         />
       ))}
       <div className="card">
@@ -53,11 +53,13 @@ export const App = () => {
             </div>
             <div className="media-content" />
             <div className="media-right">
-              <p className="title is-3" data-testid="total">£{total}</p>
+              <p className="title is-3" data-testid="total">
+                £{total}
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};

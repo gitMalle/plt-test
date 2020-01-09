@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/ProductCard.css";
 
 export const ProductCard = props => {
-  const { product, handleTotal } = props;
+  const { product, handleTotal, filter } = props;
 
   const [count, setCount] = useState(0);
+
+  // reset count every time products are filtered
+  useEffect(() => {
+    setCount(0);
+  }, [filter]);
 
   const addItem = () => {
     setCount(count + 1);
@@ -28,11 +33,7 @@ export const ProductCard = props => {
       <div className="card-content">
         <div className="media product-card-content">
           <div className="media-left">
-            <img
-              src={product.img}
-              alt="product"
-              className="product-img"
-            />
+            <img src={product.img} alt="product" className="product-img" />
           </div>
           <div className="media-content">
             <p className="title is-5">{product.name}</p>
