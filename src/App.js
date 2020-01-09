@@ -22,10 +22,12 @@ function App() {
   }, []);
 
   useEffect(() => {
-    filter.length > 0
-      ? setProducts(allProducts.filter(p => p.colour === filter))
-      : setProducts(allProducts);
-    setTotal(0);
+    if (filter.length > 0) {
+      setProducts(allProducts.filter(p => p.colour === filter));
+      setTotal(0);
+    } else {
+      setProducts(allProducts);
+    }
   }, [filter]);
 
   return (

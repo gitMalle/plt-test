@@ -12,7 +12,7 @@ export const ColourDropdown = props => {
   }, [products]);
 
   return (
-    <div className={`dropdown ${isOpen && "is-active"}`}>
+    <div className={`dropdown ${isOpen && "is-active"}`} onMouseLeave={() => setOpen(false)}>
       <div className="dropdown-trigger">
         <button
           className="button"
