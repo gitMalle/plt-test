@@ -6,8 +6,13 @@
     max-height: 150px;
 }
 
-.align-items-center {
+.product-card-content {
     align-items: center;
+    flex-wrap: wrap;
+}
+
+.product-card-content > div {
+    margin: 8px;
 }
 
 .text-center {

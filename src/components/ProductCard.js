@@ -26,11 +26,11 @@ export const ProductCard = props => {
   return (
     <div className="card product-card" data-testid="product">
       <div className="card-content">
-        <div className="media align-items-center">
+        <div className="media product-card-content">
           <div className="media-left">
             <img
               src={product.img}
-              alt="product image"
+              alt="product"
               className="product-img"
             />
           </div>
