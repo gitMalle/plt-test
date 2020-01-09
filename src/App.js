@@ -30,7 +30,7 @@ export const App = () => {
   }, [filter]);
 
   return (
-    <div className="container" style={{ padding: "64px 0" }}>
+    <div className="container" style={{ padding: "64px 16px" }}>
       <ColourDropdown
         products={allProducts}
         setFilter={filter => setFilter(filter)}
